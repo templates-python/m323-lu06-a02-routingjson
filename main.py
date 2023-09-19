@@ -8,10 +8,12 @@ posts = [
     {'id': 2, 'title': 'Zweiter Beitrag', 'content': 'Dies ist der Inhalt des zweiten Beitrags.'}
 ]
 
+
 @app.route('/posts', methods=['GET'])
 def blog_overview():
     """Gibt eine Übersicht aller Blog-Beiträge als JSON zurück."""
     return jsonify(posts)
+
 
 @app.route('/posts/<int:post_id>', methods=['GET'])
 def blog_detail(post_id):
@@ -20,6 +22,7 @@ def blog_detail(post_id):
     if post:
         return jsonify(post)
     return jsonify({'message': 'Post nicht gefunden'}), 404
+
 
 @app.route('/posts', methods=['POST'])
 def add_post():
@@ -33,12 +36,14 @@ def add_post():
     posts.append(new_post)
     return jsonify(new_post), 201
 
+
 @app.route('/posts/<int:post_id>', methods=['DELETE'])
 def delete_post(post_id):
     """Löscht einen bestimmten Blog-Beitrag und gibt eine Bestätigungsnachricht zurück."""
     global posts
     posts = [post for post in posts if post['id'] != post_id]
     return jsonify({'message': 'Post erfolgreich gelöscht'}), 200
+
 
 if __name__ == '__main__':
     app.run()
