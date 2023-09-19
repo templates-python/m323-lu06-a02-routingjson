@@ -19,6 +19,7 @@ def blog_overview():
 def blog_detail(post_id):
     """Gibt die Details eines bestimmten Blog-Beitrags als JSON zurück."""
     post = next((post for post in posts if post['id'] == post_id), None)
+    # post = next(filter(lambda post: post['id'] == post_id, posts))
     if post:
         return jsonify(post)
     return jsonify({'message': 'Post nicht gefunden'}), 404
