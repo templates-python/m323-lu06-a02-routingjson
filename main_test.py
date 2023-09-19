@@ -29,7 +29,15 @@ def test_add_post(client):
 
 
 def test_delete_post(client):
-    response = client.delete('/posts/1')
-    assert response.status_code == 200
-    assert response.get_json()['message'] == 'Post erfolgreich gelöscht'
-    assert len(posts) == 1
+    # Zuerst die Anzahl der vorhandenen Beiträge überprüfen
+    response = client.get('/posts')
+    initial_count = len(response.get_json())
+
+    # Einen Beitrag löschen
+    response_delete = client.delete('/posts/1')
+    assert response_delete.status_code == 200
+    assert response_delete.get_json()['message'] == 'Post erfolgreich gelöscht'
+
+    # Nach dem Löschen die Anzahl der Beiträge erneut überprüfen
+    response_after_delete = client.get('/posts')
+    assert len(response_after_delete.get_json()) == initial_count - 1
