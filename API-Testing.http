@@ -1,0 +1,17 @@
+### Get all blog posts
+GET http://127.0.0.1:5000/posts
+
+### Get blog post with ID 1
+GET http://127.0.0.1:5000/posts/1
+
+### Add a new blog post
+POST http://127.0.0.1:5000/posts
+Content-Type: application/json
+
+{
+  "title": "Dritter Beitrag",
+  "content": "Dies ist der Inhalt des dritten Beitrags."
+}
+
+### Delete blog post with ID 1
+DELETE http://127.0.0.1:5000/posts/1
