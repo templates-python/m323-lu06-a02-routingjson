@@ -1,0 +1,26 @@
+[
+  {
+    "name": "test_blog_overview",
+    "function": "test_blog_overview",
+    "timeout": 10,
+    "points": 1
+  },
+  {
+    "name": "test_blog_detail",
+    "function": "test_blog_detail",
+    "timeout": 10,
+    "points": 1
+  },
+  {
+    "name": "test_add_post",
+    "function": "test_add_post",
+    "timeout": 10,
+    "points": 1
+  },
+  {
+    "name": "test_delete_post",
+    "function": "test_delete_post",
+    "timeout": 10,
+    "points": 1
+  }
+]
