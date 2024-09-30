@@ -4,8 +4,16 @@ app = Flask(__name__)
 
 # Eine einfache Datenstruktur zur Speicherung der Blog-Beiträge
 posts = [
-    {'id': 1, 'title': 'Erster Beitrag', 'content': 'Dies ist der Inhalt des ersten Beitrags.'},
-    {'id': 2, 'title': 'Zweiter Beitrag', 'content': 'Dies ist der Inhalt des zweiten Beitrags.'}
+    {
+        'id': 1,
+        'title': 'Erster Beitrag',
+        'content': 'Dies ist der Inhalt des ersten Beitrags.',
+    },
+    {
+        'id': 2,
+        'title': 'Zweiter Beitrag',
+        'content': 'Dies ist der Inhalt des zweiten Beitrags.',
+    },
 ]
 
 
@@ -32,7 +40,7 @@ def add_post():
     new_post = {
         'id': len(posts) + 1,
         'title': data['title'],
-        'content': data['content']
+        'content': data['content'],
     }
     posts.append(new_post)
     return jsonify(new_post), 201
