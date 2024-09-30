@@ -22,7 +22,10 @@ def test_blog_detail(client):
 
 
 def test_add_post(client):
-    new_post = {'title': 'Dritter Beitrag', 'content': 'Dies ist der Inhalt des dritten Beitrags.'}
+    new_post = {
+        'title': 'Dritter Beitrag',
+        'content': 'Dies ist der Inhalt des dritten Beitrags.',
+    }
     response = client.post('/posts', json=new_post)
     assert response.status_code == 201
     assert response.get_json()['title'] == new_post['title']
