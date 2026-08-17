@@ -1,3 +1,8 @@
+"""Blog-Verwaltung mit Flask und JSON.
+
+Aufgabenstellung: https://wiki.bzz.ch/modul/m323/learningunits/lu06/aufgaben/routingmitjson
+"""
+
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
